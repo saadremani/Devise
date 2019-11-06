@@ -1,0 +1,28 @@
+
+<div class="container">
+
+	<h1>Affichage d'un événement !</h1>
+		
+		<div class="card">
+			<div class="card-header">	<%= "Titre : " + @event.title %></div>
+			</br>
+
+			<div class="card-body">	 
+				<%= "description : " +  @event.description %>
+			</br>
+				<%= "Ville : " +  @event.location %>
+			</br>
+				<%= "Prix : " +  @event.price.to_s %>
+			</br>
+				<%= "Début : " +  @event.start_date.to_s %>
+			</br>
+				<%= "Durée : " +  @event.duration.to_s %>
+			</br>
+				<%= "Fin : " +  @event.end_date.to_s %>
+			</br>
+			</div>
+
+			</br>
+</div>
+		
+

@@ -1,0 +1,42 @@
+<div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Bienvenue sur EVENTYTY!</h1>
+          <p>Le site pour créer et organiser des événements.</p>
+        </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+
+	<h1>Les événements !</h1>
+
+	<%= link_to "Créer un événements", new_event_path, class: 'btn btn-primary mb-5 mt-5' %> 
+	<% @events_array.each do |e| %>	
+		<div class="card">
+			<div class="card-header">	<%= "Titre : " + e.title %></div>
+			</br>
+
+			<div class="card-body">	 
+				<%= "description : " +  e.description %>
+			</br>
+				<%= "Ville : " +  e.location %>
+			</br>
+				<%= "Prix : " +  e.price.to_s %>
+			</br>
+				<%= "Début : " +  e.start_date.to_s %>
+			</br>
+				<%= "Durée : " +  e.duration.to_s %>
+			</br>
+			</div>
+			<%= link_to "Afficher",event_path(e.id), class: 'btn btn-primary' %>
+			</br>
+		</div>
+	<% end %>	
+</div>
+		
+

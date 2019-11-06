@@ -1,0 +1,68 @@
+<div class="container">
+
+	<h1>Affichage du profil !</h1>
+		
+		<div class="card">
+			<div class="card-header">
+					<% if @user.first_name != nil then %>
+						<%= "Prénom : " + @user.first_name %>
+					<% end %>
+					</br>
+					<% if @user.last_name != nil then %>
+						<%= "Nom : " + @user.last_name %>
+					<% end %>
+					</br>
+			</div>
+
+			<div class="card-body">	 
+				<% if @user.last_name != nil then %>
+					<%= "description : " +  @user.description %>
+				<% end %>
+			</br>
+				<%= "Email : " +  @user.email %>
+			</br>
+			</div>
+			<div class="card-body">	 
+				<%= link_to "Editer profil", edit_user_registration_path, class: 'btn btn-primary ' %> 
+			</div>
+			<div class="card-body">	 
+				<%= link_to "changer les informations", edit_user_path(current_user.id), class: 'btn btn-primary ' %> 
+			</div>
+			</br>
+</div>
+
+		
+<div class="container">
+
+	<% if @events_array.size > 0 then %>
+		<h1>
+<%= "Affichage des événements du profil"  %>
+</h1>
+<% end %>
+
+	<% @events_array.each do |e| %>
+		
+		<div class="card">
+			<div class="card-header">
+			<%= "Titre : " + e.title %>
+				</br>
+			</div>
+
+			<div class="card-body">	 
+				<%= "description : " +  e.description %>
+			</br>
+				<%= "ville : " +  e.location %>
+			</br>
+				<%= "Durée : " +  e.duration.to_s %>
+			</br>
+				<%= "commencement : " +  e.start_date.to_s %>
+			</br>
+				<%= "fin : " +  e.end_date.to_s %>
+			</br>
+				<%= "Prix : " + e.price.to_s %>
+			</br>
+			</div>
+	<% end %>
+
+			</br>
+</div>

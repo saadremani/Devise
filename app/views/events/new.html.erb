@@ -1,0 +1,44 @@
+<%if @event.errors.any? then %>	
+				<div class="alert alert-danger" role="alert"> 
+					<%=  @event.errors.full_messages %>
+				</div> 
+<% end %>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br><br>
+      <%= form_for @event, url: events_path, html: { class: "form-signin mt-3" } do |f| %>
+        <h1 class="h3 mb-3 font-weight-normal text-center">Créer un événement!</h1>
+        <div class="form-group">
+          <%= f.label :title, "Titre" %><br />
+          <%= f.text_field :title, autofocus: true, autocomplete: "email", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description, "Description" %>
+          <%= f.text_area :description, autocomplete: "new-password", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :location, "Ville" %><br />
+          <%= f.text_field :location, autocomplete: "new-password", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :start_date, "Commencement" %><br />
+					<%= select_date Date.today, prefix: :start_date %>
+        </div>
+        <div class="form-group">
+          <%= f.label :duration, "Durée" %><br />
+          <%= f.text_field :duration, autocomplete: "new-password", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :price, "Prix" %><br />
+          <%= f.text_field :price, autocomplete: "new-password", class: "form-control" %>
+        </div>
+        <div class="actions mt-5">
+          <%= f.submit "Sign up", class: "btn btn-lg btn-primary btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
